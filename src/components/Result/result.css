@@ -1,5 +1,6 @@
-.result-items {
-  width: 25%;
+.result-items,
+.back {
+  width: 80%;
   display: flex;
   justify-content: space-around;
   margin: 1em;
@@ -36,6 +37,19 @@
 }
 
 .back {
-  transform: rotate(360deg);
+  transform: rotateY(360deg);
   transition: 3s;
+}
+
+@media (in-width: 576px) {
+}
+@media (min-width: 768px) {
+}
+@media (min-width: 992px) {
+}
+
+@media (min-width: 1200px) {
+}
+
+@media (min-width: 1400px) {
 }

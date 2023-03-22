@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { fetchSearchApi } from "../../utils/fetchApi";
 
+import "./search.css";
+
 function SearchForm({ setMovies, setSearchParams }) {
   const [search, setSearch] = useState("");
 
