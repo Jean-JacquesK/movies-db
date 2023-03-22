@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { fetchTopRatedApi, fetchTrendingApi } from "../../utils/fetchApi";
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams } from "react-router-dom";
 import Result from "../Result/Result";
 import SearchForm from "../Search/SearchForm";
 
@@ -9,7 +9,7 @@ function Main() {
   const [searchMovie, setSearchMovie] = useState([]);
   const [topRated, setTopRated] = useState([]);
 
- let [searchParams, setSearchParams] = useSearchParams(); 
+  let [searchParams, setSearchParams] = useSearchParams();
 
   return (
     <section className='main-container'>
@@ -18,13 +18,12 @@ function Main() {
           <li
             className='search-item'
             onClick={() => {
+              let params = "top_rated";
 
-              let params = ('top_rated')
-
-              setSearchParams(params)
-              // fetchTopRatedApi().then((res) => {
-              //   setTopRated(res);
-              // });
+              setSearchParams(params);
+              fetchTopRatedApi(params).then((res) => {
+                setTopRated(res);
+              });
             }}
           >
             Top Rate Movies
@@ -32,14 +31,13 @@ function Main() {
           <li
             className='search-item search-active'
             onClick={() => {
-              let params = ('trending')
+              let params = "trending";
 
-              setSearchParams(params)
+              setSearchParams(params);
 
-
-              // fetchTrendingApi().then((res) => {
-              //   SetTrending(res);
-              // });
+              fetchTrendingApi(params).then((res) => {
+                SetTrending(res);
+              });
             }}
           >
             Top Trend Movies
@@ -48,7 +46,7 @@ function Main() {
         <SearchForm setSearchMovie={setSearchMovie} />
       </div>
       <div className='result-container'>
-        {(topRated || trending || searchMovie).map((item) => {
+        {(trending || topRated || searchMovie).map((item) => {
           return <Result key={item.id} item={item} />;
         })}
       </div>

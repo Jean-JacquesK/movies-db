@@ -1,17 +1,9 @@
 const API_KEY = process.env.REACT_APP_API_KEY;
 
-export const fetchTrendingApi = async () => {
-  const response = await fetch(
-    `https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}`
-  );
-  const data = await response.json();
-  return data.results;
-};
-
-export const fetchSearchApi = async (value) => {
+export const fetchTrendingApi = async (params) => {
   try {
     const response = await fetch(
-      `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${value}`
+      `https://api.themoviedb.org/3/${params}/movie/day?api_key=${API_KEY}`
     );
     const data = await response.json();
     return data.results;
@@ -20,10 +12,22 @@ export const fetchSearchApi = async (value) => {
   }
 };
 
-export const fetchTopRatedApi = async () => {
+export const fetchTopRatedApi = async (params) => {
   try {
     const response = await fetch(
-      `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}`
+      `https://api.themoviedb.org/3/movie/${params}?api_key=${API_KEY}`
+    );
+    const data = await response.json();
+    return data.results;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const fetchSearchApi = async (value) => {
+  try {
+    const response = await fetch(
+      `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${value}`
     );
     const data = await response.json();
     return data.results;
