@@ -5,16 +5,14 @@ import Result from "../Result/Result";
 import SearchForm from "../Search/SearchForm";
 
 function Main() {
-  const [trending, SetTrending] = useState([]);
-  const [searchMovie, setSearchMovie] = useState([]);
-  const [topRated, setTopRated] = useState([]);
+  const [movies, setMovies] = useState([]);
 
   let [searchParams, setSearchParams] = useSearchParams();
 
   return (
     <section className='main-container'>
       <div className='search-container'>
-        <ul className='search-list'>
+        <ul className='search-list '>
           <li
             className='search-item'
             onClick={() => {
@@ -22,31 +20,31 @@ function Main() {
 
               setSearchParams(params);
               fetchTopRatedApi(params).then((res) => {
-                setTopRated(res);
+                setMovies(res);
               });
             }}
           >
             Top Rate Movies
           </li>
           <li
-            className='search-item search-active'
+            className='search-item '
             onClick={() => {
               let params = "trending";
 
               setSearchParams(params);
 
               fetchTrendingApi(params).then((res) => {
-                SetTrending(res);
+                setMovies(res);
               });
             }}
           >
             Top Trend Movies
           </li>
         </ul>
-        <SearchForm setSearchMovie={setSearchMovie} />
+        <SearchForm setMovies={setMovies} setSearchParams={setSearchParams} />
       </div>
       <div className='result-container'>
-        {(trending || topRated || searchMovie).map((item) => {
+        {movies.map((item) => {
           return <Result key={item.id} item={item} />;
         })}
       </div>

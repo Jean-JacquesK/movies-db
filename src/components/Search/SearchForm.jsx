@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { fetchSearchApi } from "../../utils/fetchApi";
 
-function SearchForm({ setSearchMovie }) {
+function SearchForm({ setMovies, setSearchParams }) {
   const [search, setSearch] = useState("");
 
   function handleChange(e) {
@@ -10,9 +10,13 @@ function SearchForm({ setSearchMovie }) {
 
   function handleSubmit(e) {
     e.preventDefault();
+    let params = "search";
+
+    setSearchParams(params);
     fetchSearchApi(search).then((res) => {
-      setSearchMovie(res);
+      setMovies(res);
     });
+    setSearch("");
   }
 
   return (
