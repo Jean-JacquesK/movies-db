@@ -5,7 +5,8 @@
   margin: 1em;
   background: var(--color);
   color: var(--background);
-  border-radius: 0.2em;
+  border-radius: 1em;
+  box-shadow: 0 0 5px 2px rgba(50, 50, 50, 0.3);
   cursor: pointer;
 }
 
@@ -35,6 +36,6 @@
 }
 
 .back {
-  transform: rotate(180);
-  transition: 2s;
+  transform: rotate(360deg);
+  transition: 3s;
 }
