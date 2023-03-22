@@ -26,7 +26,7 @@ function SearchForm({ setMovies, setSearchParams }) {
       <input
         type='search'
         className='form-input'
-        placeholder='Search movie with title...'
+        placeholder='Search movie...'
         value={search}
         onChange={handleChange}
       />

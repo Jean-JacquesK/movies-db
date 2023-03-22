@@ -1,6 +1,6 @@
 .result-items,
 .back {
-  width: 80%;
+  width: 70%;
   display: flex;
   justify-content: space-around;
   margin: 1em;
@@ -41,14 +41,30 @@
   transition: 3s;
 }
 
-@media (in-width: 576px) {
+@media (min-width: 576px) {
+  .result-items,
+  .back {
+    width: 70%;
+  }
 }
 @media (min-width: 768px) {
+  .result-items,
+  .back {
+    width: 40%;
+  }
 }
 @media (min-width: 992px) {
+  .result-items,
+  .back {
+    width: 30%;
+  }
 }
 
 @media (min-width: 1200px) {
+  .result-items,
+  .back {
+    width: 25%;
+  }
 }
 
 @media (min-width: 1400px) {

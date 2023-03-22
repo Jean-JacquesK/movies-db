@@ -35,39 +35,14 @@ body {
 }
 
 @media (min-width: 576px) {
-  .app {
-    width: 500px;
-    height: 100vh;
-    margin: auto;
-  }
 }
 @media (min-width: 768px) {
-  .app {
-    width: 700px;
-    height: 100vh;
-    margin: auto;
-  }
 }
 @media (min-width: 992px) {
-  .app {
-    width: 900px;
-    height: 100vh;
-    margin: auto;
-  }
 }
 
 @media (min-width: 1200px) {
-  .app {
-    width: 1000px;
-    height: 100vh;
-    margin: auto;
-  }
 }
 
 @media (min-width: 1400px) {
-  .app {
-    width: 1200px;
-    height: 100vh;
-    margin: auto;
-  }
 }
