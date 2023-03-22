@@ -57,7 +57,12 @@
     font-size: 1.2em;
   }
   .form-input {
-    width: 70%;
+    width: 50%;
+    height: 1.8em;
+  }
+  .form-button {
+    width: 1.8em;
+    height: 1.8em;
   }
 }
 @media (min-width: 768px) {
@@ -66,7 +71,13 @@
   }
 
   .form-input {
-    width: 70%;
+    width: 50%;
+    height: 1.8em;
+  }
+
+  .form-button {
+    width: 1.8em;
+    height: 1.8em;
   }
 }
 @media (min-width: 992px) {
