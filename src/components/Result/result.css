@@ -1,6 +1,6 @@
 .result-items,
 .back {
-  width: 70%;
+  width: 80%;
   display: flex;
   justify-content: space-around;
   margin: 1em;
@@ -44,7 +44,7 @@
 @media (min-width: 576px) {
   .result-items,
   .back {
-    width: 70%;
+    width: 40%;
   }
 }
 @media (min-width: 768px) {

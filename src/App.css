@@ -1,11 +1,11 @@
 :root {
   --background: #b8cbd0;
-  --color: #173c4d;
+  --color: #7f9fad;
 }
 
 [data-theme="darkTheme"] {
   --background: #173c4d;
-  --color: #b8cbd0;
+  --color: #657074;
 }
 
 body {
