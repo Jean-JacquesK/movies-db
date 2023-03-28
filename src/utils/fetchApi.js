@@ -42,7 +42,8 @@ export const fetchIdApi = async (id) => {
       `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`
     );
     const data = await response.json();
-    return data.results;
+    console.log(data);
+    return data;
   } catch (error) {
     console.error(error);
   }
