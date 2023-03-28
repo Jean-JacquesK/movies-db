@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { fetchTopRatedApi, fetchTrendingApi } from "../../utils/fetchApi";
-import { useSearchParams } from "react-router-dom";
+import { Route, Routes, useSearchParams } from "react-router-dom";
 import Result from "../Result/Result";
-import SearchForm from "../Search/SearchForm";
+import NavMovies from "../NavMovies/navMovies";
+import ItemDetails from "../ItemDetails/ItemDetails";
 
 function Main() {
   const [movies, setMovies] = useState([]);
@@ -11,43 +11,12 @@ function Main() {
 
   return (
     <section className='main-container'>
-      <div className='search-container'>
-        <ul className='search-list '>
-          <li
-            className='search-item'
-            onClick={() => {
-              let params = "top_rated";
+      <NavMovies setMovies={setMovies} setSearchParams={setSearchParams} />
 
-              setSearchParams(params);
-              fetchTopRatedApi(params).then((res) => {
-                setMovies(res);
-              });
-            }}
-          >
-            Top Rate Movies
-          </li>
-          <li
-            className='search-item '
-            onClick={() => {
-              let params = "trending";
-
-              setSearchParams(params);
-
-              fetchTrendingApi(params).then((res) => {
-                setMovies(res);
-              });
-            }}
-          >
-            Top Trend Movies
-          </li>
-        </ul>
-        <SearchForm setMovies={setMovies} setSearchParams={setSearchParams} />
-      </div>
-      <div className='result-container'>
-        {movies.map((item) => {
-          return <Result key={item.id} item={item} />;
-        })}
-      </div>
+      <Routes>
+        <Route path='/' element={<Result movies={movies} />} />
+        <Route path='movies/details/:id' element={<ItemDetails />} />
+      </Routes>
     </section>
   );
 }
