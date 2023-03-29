@@ -1,18 +1,15 @@
 import { fetchTopRatedApi, fetchTrendingApi } from "../../utils/fetchApi";
 import SearchForm from "../Search/SearchForm";
 
-function NavMovies({ setMovies, setSearchParams }) {
+function NavMovies({ setSearchMovies }) {
   return (
     <div className='search-container'>
       <ul className='search-list '>
         <li
           className='search-item'
           onClick={() => {
-            let params = "top_rated";
-
-            setSearchParams(params);
-            fetchTopRatedApi(params).then((res) => {
-              setMovies(res);
+            fetchTopRatedApi().then((res) => {
+              setSearchMovies(res);
             });
           }}
         >
@@ -21,19 +18,15 @@ function NavMovies({ setMovies, setSearchParams }) {
         <li
           className='search-item '
           onClick={() => {
-            let params = "trending";
-
-            setSearchParams(params);
-
-            fetchTrendingApi(params).then((res) => {
-              setMovies(res);
+            fetchTrendingApi().then((res) => {
+              setSearchMovies(res);
             });
           }}
         >
           Top Trend Movies
         </li>
       </ul>
-      <SearchForm setMovies={setMovies} setSearchParams={setSearchParams} />
+      <SearchForm setSearchMovies={setSearchMovies} />
     </div>
   );
 }

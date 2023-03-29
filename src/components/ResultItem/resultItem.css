@@ -24,9 +24,9 @@
   backface-visibility: hidden;
 }
 
-.result-items:hover {
+/* .result-items:hover {
   transform: rotateY(180deg);
-}
+} */
 
 .result-img {
   width: 80%;

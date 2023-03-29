@@ -3,7 +3,7 @@ import { fetchSearchApi } from "../../utils/fetchApi";
 
 import "./search.css";
 
-function SearchForm({ setMovies, setSearchParams }) {
+function SearchForm({ setSearchMovies }) {
   const [search, setSearch] = useState("");
 
   function handleChange(e) {
@@ -12,11 +12,9 @@ function SearchForm({ setMovies, setSearchParams }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    let params = "search";
 
-    setSearchParams(params);
     fetchSearchApi(search).then((res) => {
-      setMovies(res);
+      setSearchMovies(res);
     });
     setSearch("");
   }

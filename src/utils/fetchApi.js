@@ -1,9 +1,9 @@
 const API_KEY = process.env.REACT_APP_API_KEY;
 
-export const fetchTrendingApi = async (params) => {
+export const fetchTrendingApi = async () => {
   try {
     const response = await fetch(
-      `https://api.themoviedb.org/3/${params}/movie/day?api_key=${API_KEY}`
+      `https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}`
     );
     const data = await response.json();
     return data.results;
@@ -12,10 +12,10 @@ export const fetchTrendingApi = async (params) => {
   }
 };
 
-export const fetchTopRatedApi = async (params) => {
+export const fetchTopRatedApi = async () => {
   try {
     const response = await fetch(
-      `https://api.themoviedb.org/3/movie/${params}?api_key=${API_KEY}`
+      `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}`
     );
     const data = await response.json();
     return data.results;
@@ -36,7 +36,7 @@ export const fetchSearchApi = async (value) => {
   }
 };
 
-export const fetchIdApi = async (id) => {
+export const fetchMovieDetailsApi = async (id) => {
   try {
     const response = await fetch(
       `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`

@@ -1,22 +1,28 @@
-import { useState } from "react";
-import { Route, Routes, useSearchParams } from "react-router-dom";
-import Result from "../Result/Result";
+import { useEffect, useState } from "react";
 import NavMovies from "../NavMovies/navMovies";
-import ItemDetails from "../ItemDetails/ItemDetails";
+import { fetchTopRatedApi } from "../../utils/fetchApi";
+import ResultItem from "../ResultItem/ResultIem";
 
 function Main() {
-  const [movies, setMovies] = useState([]);
+  const [searchMovies, setSearchMovies] = useState([]);
 
-  let [searchParams, setSearchParams] = useSearchParams();
+  useEffect(() => {
+    return () => {
+      fetchTopRatedApi().then((res) => {
+        setSearchMovies(res);
+      });
+    };
+  }, []);
 
   return (
     <section className='main-container'>
-      <NavMovies setMovies={setMovies} setSearchParams={setSearchParams} />
+      <NavMovies setSearchMovies={setSearchMovies} />
 
-      <Routes>
-        <Route path='/' element={<Result movies={movies} />} />
-        <Route path='movies/details/:id' element={<ItemDetails />} />
-      </Routes>
+      <div className='result-container'>
+        {searchMovies.map((item) => {
+          return <ResultItem key={item.id} item={item} />;
+        })}
+      </div>
     </section>
   );
 }
